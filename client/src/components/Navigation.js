@@ -33,6 +33,9 @@ function Navigation() {
               Orders
             </Button>
             <Button color="inherit" onClick={logout}>Logout</Button>
+            <Button color="inherit" component={Link} to="/add-product">
+    Add Product
+  </Button>
           </>
         ) : (
           <>

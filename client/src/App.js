@@ -12,6 +12,8 @@ import CartPage from "./pages/CartPage";
 import DashboardPage from "./pages/DashboardPage";
 import OrdersPage from "./pages/OrdersPage";
 import useAuth from "./hooks/useAuth";
+import AddProductPage from "./pages/AddProductPage";
+
 
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -41,6 +43,12 @@ function App() {
                 <OrdersPage />
               </ProtectedRoute>
             } />
+            <Route path="/add-product" element={
+  <ProtectedRoute>
+    <AddProductPage />
+  </ProtectedRoute>
+} />
+
           </Routes>
         </Router>
       </CartProvider>

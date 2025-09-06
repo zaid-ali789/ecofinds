@@ -5,12 +5,20 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+const backendBaseUrl = "http://localhost:5000";
+
 const ProductCard = ({ product, onAddToCart, showAddToCart = true }) => (
   <Card sx={{ maxWidth: 345, margin: 2 }}>
     <CardMedia
       component="img"
       height="140"
-      image={product.imageUrl || "/assets/placeholder.png"}
+      image={
+        product.imageUrl
+          ? product.imageUrl.startsWith("http")
+            ? product.imageUrl
+            : `${backendBaseUrl}${product.imageUrl}`
+          : "/assets/placeholder.png"
+      }
       alt={product.title}
     />
     <CardContent>
